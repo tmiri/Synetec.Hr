@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Synetec.Hr.Database\Synetec.Hr.Database.csproj" />
+    <ProjectReference Include="..\Synetec.Hr.Exceptions\Synetec.Hr.Exceptions.csproj" />
+    <ProjectReference Include="..\Synetec.Hr.UnitOfWork\Synetec.Hr.UnitOfWork.csproj" />
+  </ItemGroup>
+
+</Project>

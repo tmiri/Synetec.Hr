@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Synetec.Hr.Web.Models.Administration.RoleViewModel>
+
+@{
+    ViewData["Title"] = "Roles";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    @Html.ActionLink("Create Role", "CreateRole", "Roles")
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @Html.HiddenFor(m => item.Id)
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "EditRole", "Roles", new { roleId = item.Id })
+                    <span>|</span>
+                    @Html.ActionLink("Delete", "DeleteRole", "Roles", new { roleId = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
