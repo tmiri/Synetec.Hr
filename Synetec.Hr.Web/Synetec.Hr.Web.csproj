@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Account\Login.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <_ContentIncludedByDefault Remove="Views\Account\Login.cshtml" />
   </ItemGroup>
 
@@ -25,10 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Synetec.Hr.Core\Synetec.Hr.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\Account\Login.cshtml" />
   </ItemGroup>
 
 </Project>
