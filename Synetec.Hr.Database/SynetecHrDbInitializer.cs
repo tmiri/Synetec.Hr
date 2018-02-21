@@ -19,20 +19,48 @@ namespace Synetec.Hr.Database
             {
                 var user = new User
                 {
-                    UserName = "admin",
+                    UserName = "admin@synetec.co.uk",
                     Email = "admin@synetec.co.uk",
                     FirstName = "Synetec",
                     LastName = "Admin",
-                    DateOfBirth = new DateTime(1960, 1, 1)
-            };
+                    Position = "System Administrator",
+                    StartDate = new DateTime(1960, 1, 1),
+                    DaysCarriedOver = 0,
+                    LeaveAllowance = 0,
+                    LineManager = "None",
+                    ChangePassword = false
+                };
 
-                IdentityResult result = userManager.CreateAsync
+                var result = userManager.CreateAsync
                     (user, "Synetec1!").Result;
 
                 if (result.Succeeded)
                 {
                     userManager.AddToRoleAsync(user,
                         "Administrator").Wait();
+                }
+
+                var user2 = new User
+                {
+                    UserName = "gsnell@synetec.co.uk",
+                    Email = "gsnell@synetec.co.uk",
+                    FirstName = "Gregory",
+                    LastName = "Scotchburn-Snell",
+                    Position = "CTO & Head of Development",
+                    StartDate = new DateTime(2013, 7, 11),
+                    DaysCarriedOver = 0,
+                    LeaveAllowance = 0,
+                    LineManager = "None",
+                    ChangePassword = true
+                };
+
+                result = userManager.CreateAsync
+                    (user2, "Synetec1!").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user,
+                        "Line Manager").Wait();
                 }
             }
         }
@@ -80,6 +108,19 @@ namespace Synetec.Hr.Database
 
             if (!roleManager.RoleExistsAsync
                 ("Line Manager").Result)
+            {
+                var role = new Role
+                {
+                    Name = "Line Manager",
+                    Description = "Line Manager role"
+                };
+
+                var roleResult = roleManager.
+                    CreateAsync(role).Result;
+            }
+
+            if (!roleManager.RoleExistsAsync
+                ("Resource Manager").Result)
             {
                 var role = new Role
                 {

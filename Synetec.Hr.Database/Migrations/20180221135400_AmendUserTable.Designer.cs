@@ -11,9 +11,10 @@ using System;
 namespace Synetec.Hr.Database.Migrations
 {
     [DbContext(typeof(SynetecHrDbContext))]
-    partial class SynetecHrDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180221135400_AmendUserTable")]
+    partial class AmendUserTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
